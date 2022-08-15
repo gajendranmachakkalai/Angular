@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row" style="margin-top:5%">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <h3 class="p5 mb-5">Login</h3>
+            <form [formGroup]="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-lable">User Name</label>
+                    <input type="text" [(ngModel)]="userName" class="form-control" name="username" formControlName="username" />
+                    <div *ngIf="username && username.invalid && username.touched" class="invalid-feedback"  style="display:block">
+                        User Name is Required.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-lable">Password</label>
+                    <input type="password" [(ngModel)]="password" class="form-control" name="password" formControlName="password" />
+                    <div *ngIf="passwordval && passwordval.invalid && passwordval.touched" class="invalid-feedback" style="display:block">
+                        Password is Required.
+                    </div>
+                </div>   
+                <button (click)="Login()" [disabled]="loginForm.invalid" class="btn btn-primary me-2">Sign In</button>
+                <button (click)="Cancel()" class="btn btn-danger">Cancel</button>
+            </form>
+            <div class="alert alert-danger" role="alert" id="loginfailure">
+                Invalid UserName/Password
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
